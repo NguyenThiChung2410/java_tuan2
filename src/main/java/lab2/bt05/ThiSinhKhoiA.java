@@ -9,13 +9,44 @@ package lab2.bt05;
  * @author admin
  */
 public class ThiSinhKhoiA extends ThiSinh{
-    public ThiSinhKhoiA(String soBaoDanh, String hoTen, String diaChi, String mucUuTien) {
+    private double toan;
+    private double ly;
+    private double hoa;
+    
+    public ThiSinhKhoiA(String soBaoDanh, String hoTen, String diaChi, String mucUuTien,double toan,double ly,double hoa) {
         super(soBaoDanh, hoTen, diaChi, mucUuTien);
+        this.toan=toan;
+        this.ly=ly;
+        this.hoa=hoa;
+    }
+
+    public double getToan() {
+        return toan;
+    }
+
+    public void setToan(double toan) {
+        this.toan = toan;
+    }
+
+    public double getLy() {
+        return ly;
+    }
+
+    public void setLy(double ly) {
+        this.ly = ly;
+    }
+
+    public double getHoa() {
+        return hoa;
+    }
+
+    public void setHoa(double hoa) {
+        this.hoa = hoa;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Khoi thi: A (Toan, Ly, Hoa)";
+        return "ThiSinhKhoiB{" +super.toString()+ "toan=" + toan + ", ly=" + ly + ", hoa=" + hoa + '}';
     }
     
 }

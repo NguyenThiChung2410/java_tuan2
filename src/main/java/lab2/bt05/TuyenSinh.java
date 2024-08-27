@@ -18,23 +18,9 @@ public class TuyenSinh {
         ds = new ArrayList<>();
     }
 
-    public void themThiSinh(String soBaoDanh, String hoTen, String diaChi, String mucUuTien, String khoiThi) {
-        ThiSinh thiSinh = null;
-        switch (khoiThi) {
-            case "A":
-                thiSinh = new ThiSinhKhoiA(soBaoDanh, hoTen, diaChi, mucUuTien);
-                break;
-            case "B":
-                thiSinh = new ThiSinhKhoiB(soBaoDanh, hoTen, diaChi, mucUuTien);
-                break;
-            case "C":
-                thiSinh = new ThiSinhKhoiC(soBaoDanh, hoTen, diaChi, mucUuTien);
-                break;
-            default:
-                System.out.println("Khoi thi khong hop le.");
-                return;
-        }
-        ds.add(thiSinh);
+    public void themThiSinh(ThiSinh ts) {
+        
+        ds.add(ts);
         System.out.println("Da them thi sinh thanh cong.");
     }
 

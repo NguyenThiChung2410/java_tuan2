@@ -12,7 +12,6 @@ import java.util.Scanner;
  */
 public class Program {
 
-    
     public static void main(String[] args) {
         TuyenSinh ts = new TuyenSinh();
         Scanner sc = new Scanner(System.in);
@@ -26,7 +25,7 @@ public class Program {
             System.out.println("0. Thoat");
             System.out.print("Chon chuc nang: ");
             chon = sc.nextInt();
-            sc.nextLine(); 
+            sc.nextLine();
 
             switch (chon) {
                 case 1:
@@ -51,26 +50,53 @@ public class Program {
             }
         } while (chon != 0);
 
-        
-        
     }
 
     private static void themThiSinh(TuyenSinh ts, Scanner sc) {
+        String chonKhoi = "a";
         String chon = "";
+        double toan, ly, van, hoa, su, dia, sinh;
+         
         do {
-        System.out.print("Nhao so bao danh: ");
-        String soBaoDanh = sc.nextLine();
-        System.out.print("Nhap ho ten: ");
-        String hoTen = sc.nextLine();
-        System.out.print("Nhap dia chi: ");
-        String diaChi = sc.nextLine();
-        System.out.print("Nhap muc uu tien: ");
-        String mucUuTien = sc.nextLine();
-        System.out.print("Nhap khoi thi: ");
-        String khoiThi = sc.nextLine();
+            System.out.print("Chon khoi thi (a,b,c): ");
+            chonKhoi = sc.nextLine();
 
-        ts.themThiSinh(soBaoDanh, hoTen, diaChi, mucUuTien, khoiThi);
-        System.out.print("Tiep tuc(Y/N): ");
+            System.out.print("Nhao so bao danh: ");
+            String soBaoDanh = sc.nextLine();
+            System.out.print("Nhap ho ten: ");
+            String hoTen = sc.nextLine();
+            System.out.print("Nhap dia chi: ");
+            String diaChi = sc.nextLine();
+            System.out.print("Nhap muc uu tien: ");
+            String mucUuTien = sc.nextLine();
+            if (chonKhoi.equalsIgnoreCase("a")) {
+                System.out.print("Diem toan: ");
+                toan = sc.nextDouble();
+                System.out.print("Diem ly: ");
+                ly = sc.nextDouble();
+                System.out.print("Diem hoa: ");
+                hoa = sc.nextDouble();
+                ts.themThiSinh(new ThiSinhKhoiA(soBaoDanh, hoTen, diaChi,mucUuTien, toan, ly, hoa));
+            } else if (chonKhoi.equalsIgnoreCase("b")) {
+                System.out.print("Diem toan: ");
+                toan = sc.nextDouble();
+                System.out.print("Diem sinh: ");
+                sinh = sc.nextDouble();
+                System.out.print("Diem hoa: ");
+                hoa = sc.nextDouble();
+                ts.themThiSinh(new ThiSinhKhoiB(soBaoDanh, hoTen, diaChi, mucUuTien, toan, sinh, hoa));
+
+            } else if (chonKhoi.equalsIgnoreCase("c")) {
+                System.out.print("Diem van: ");
+                van = sc.nextDouble();
+                System.out.print("Diem su: ");
+                su = sc.nextDouble();
+                System.out.print("Diem dia: ");
+                dia = sc.nextDouble();
+                ts.themThiSinh(new ThiSinhKhoiC(van, su, dia, soBaoDanh, hoTen, diaChi, mucUuTien));
+            }
+            
+            System.out.print("Tiep tuc(Y/N): ");
             chon = sc.nextLine();
         } while (chon.equalsIgnoreCase("y"));
     }
